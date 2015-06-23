@@ -23,7 +23,7 @@ sel.call(board);
 
 ## Options
 
-You can use a [FEN](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation) string to plot an specific position.
+You can use a [FEN](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation) string to plot a specific position.
 ```
 var fenstring = "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2";
 var sel2 = d3.select("#chess-container2")
