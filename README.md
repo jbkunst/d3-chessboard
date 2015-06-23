@@ -9,7 +9,7 @@ You can see how it looks [here](https://rawgit.com/jbkunst/vizs/master/d3-chessb
 
 ## How to use
 
-1. Choose you selector!
+1. Choose your selector!
 2. Create the `d3chessboard()` element
 3. Call it!
 
