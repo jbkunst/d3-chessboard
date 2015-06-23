@@ -3,6 +3,10 @@
 A chessboard in D3. No CSS, no images, no (chess) validations, just a chessboard 
 using the spirit of [reusable charts](http://bost.ocks.org/mike/chart/).
 
+## Live Demo
+
+You can see how it looks [here](https://rawgit.com/jbkunst/vizs/master/d3-chessboard/index.html).
+
 ## How to use
 
 1. Choose you selector!
