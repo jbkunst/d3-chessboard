@@ -45,4 +45,6 @@ Aps! Obviously you need [d3js](http://d3js.org/) too!
 1. http://bost.ocks.org/mike/chart/
 2. https://github.com/jhlywa/chess.js
 3. http://d3js.org/
-4. http://stackoverflow.com/questions/27806132/how-to-draw-a-chess-board-in-d3
+4. [Day/Hour Heatmap by tjdecke](http://bl.ocks.org/tjdecke/5558084)
+5. http://stackoverflow.com/questions/27806132/how-to-draw-a-chess-board-in-d3
+6. http://stackoverflow.com/questions/12303989/cartesian-product-of-multiple-arrays-in-javascript
