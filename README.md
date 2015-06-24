@@ -5,7 +5,7 @@ using the spirit of [reusable charts](http://bost.ocks.org/mike/chart/).
 
 ## Live Demo
 
-You can see how it looks [here](https://rawgit.com/jbkunst/vizs/master/d3-chessboard/index.html).
+You can see how it looks [here](https://rawgit.com/jbkunst/d3-chessboard/master/index.html).
 
 ## How to use
 
@@ -26,14 +26,13 @@ sel.call(board);
 You can use a [FEN](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation) string to plot a specific position.
 ```
 var fenstring = "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2";
-var sel2 = d3.select("#chess-container2")
+var sel2 = d3.select("#chess-container2");
 var board2 = d3chessboard()
-				.fen(fenstring)
-				.width(450)
-				.height(450)
-				.whitecellcolor("#FAFAFA")
-				.blackcellcolor("#CCC");
-
+                .fen(fenstring)
+                .size(500)
+                .fontsize(49)
+                .whitecellcolor("#FAFAFA")
+                .blackcellcolor("#CCC");
 sel2.call(board2);
 ```
 ![](images/screenshot_2.png)
@@ -52,3 +51,7 @@ Aps! Obviously you need [d3js](http://d3js.org/) too!
 4. [Day/Hour Heatmap by tjdecke](http://bl.ocks.org/tjdecke/5558084)
 5. http://stackoverflow.com/questions/27806132/how-to-draw-a-chess-board-in-d3
 6. http://stackoverflow.com/questions/12303989/cartesian-product-of-multiple-arrays-in-javascript
+
+## News
+- Version 0.1.1 released. parameters `width` and `heigth` replaced with `size`  (2015-06-24).
+- Version 0.1 released (2015-06-23). 

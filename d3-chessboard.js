@@ -4,8 +4,8 @@ function d3chessboard() {
   var whitecellcolor = "beige",
       blackcellcolor = "tan",
       fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-      width = 400,
-      height = 400;
+      fontsize = 35,
+      size = 400;
       
   // internal parameters
   var margin = {top: 20, right: 20, bottom: 20, left: 20},
@@ -36,13 +36,13 @@ function d3chessboard() {
       selection.selectAll("*").remove();
 
       var svg = selection.append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
+        .attr("width", size + margin.left + margin.right)
+        .attr("height", size + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-      var gridSizehor = Math.floor(width / cols.length),
-          gridSizever = Math.floor(height / rows.length)
+      var gridSizehor = Math.floor(size / cols.length),
+          gridSizever = Math.floor(size / rows.length)
 
       var colLabels = svg.selectAll(".colLabel")
           .data(cols)
@@ -83,7 +83,7 @@ function d3chessboard() {
           .attr("col", function(d){ return d[1]; })
           .style("text-anchor", "middle")
           .style("color", "white")
-          .attr("font-size", 35)
+          .attr("font-size", fontsize)
           .attr("transform", "translate(" + gridSizehor / 2 + "," + gridSizever / 1.3 + ")")
           .text(function(d, i){
             var cell = cols[d[1]-1] + (9 - d[0]);
@@ -94,15 +94,15 @@ function d3chessboard() {
     });
   };
 
-  board.width = function(_) {
-    if (!arguments.length) return width;
-    width = _;
+  board.size = function(_) {
+    if (!arguments.length) return size;
+    size = _;
     return board;
   };
 
-  board.height = function(_) {
-    if (!arguments.length) return height;
-    height = _;
+  board.fontsize = function(_) {
+    if (!arguments.length) return fontsize;
+    fontsize = _;
     return board;
   };
 
