@@ -1,6 +1,6 @@
 # D3 Chessboard ♕
 
-A chessboard in D3. No CSS, no images, no (chess) validations, just a chessboard 
+A chessboard *a la* D3. No CSS, no images, no (chess) validations, just a chessboard 
 using the spirit of [reusable charts](http://bost.ocks.org/mike/chart/).
 
 ## Live Demo
