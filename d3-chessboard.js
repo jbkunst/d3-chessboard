@@ -11,7 +11,7 @@ function d3chessboard() {
   var margin = {top: 20, right: 20, bottom: 20, left: 20},
       cols = ["a", "b", "c", "d", "e", "f", "g", "h"],
       rows = [8, 7, 6, 5, 4, 3, 2, 1],
-      griddata = cartesianprod(rows,rows);
+      griddata = cartesianprod(rows, rows);
 
   // http://stackoverflow.com/questions/27806132/how-to-draw-a-chess-board-in-d3
   // easy access for chess.js
@@ -42,7 +42,7 @@ function d3chessboard() {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       var gridSizehor = Math.floor(size / cols.length),
-          gridSizever = Math.floor(size / rows.length)
+          gridSizever = Math.floor(size / rows.length);
 
       var colLabels = svg.selectAll(".colLabel")
           .data(cols)
