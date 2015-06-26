@@ -55,8 +55,8 @@ Aps! Obviously you need [d3js](http://d3js.org/) too!
 6. http://stackoverflow.com/questions/12303989/cartesian-product-of-multiple-arrays-in-javascript
 
 ## News
-- Version 0.1.2 released. Adding `picefontsize`, `textfontsize`, `textopacity` parameters,  (2015-06-26).
-- Version 0.1.1 released. parameters `width` and `heigth` replaced with `size`  (2015-06-24).
+- Version 0.1.2 released. Adding `picefontsize`, `textfontsize`, `textopacity` parameters (2015-06-26).
+- Version 0.1.1 released. Parameters `width` and `heigth` replaced with `size` (2015-06-24).
 - Version 0.1 released (2015-06-23). 
 
 ## Future Work
