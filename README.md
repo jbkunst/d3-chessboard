@@ -1,6 +1,6 @@
-# D3 Chessboard ♕
+# ♕ d3-Chessboard 
 
-A chessboard *a la* D3. No CSS, no images, no (chess) validations, just a chessboard 
+**d3-Chessboard**  A chessboard *a la* D3. No CSS, no images, no (chess) validations, just a chessboard 
 using the spirit of [reusable charts](http://bost.ocks.org/mike/chart/).
 
 ## Live Demo
@@ -29,8 +29,10 @@ var fenstring = "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2";
 var sel2 = d3.select("#chess-container2");
 var board2 = d3chessboard()
                 .fen(fenstring)
-                .size(500)
-                .fontsize(49)
+                .size(450)
+                .picefontsize(48)
+                .textfontsize(20)
+                .textopacity(0.5)
                 .whitecellcolor("#FAFAFA")
                 .blackcellcolor("#CCC");
 sel2.call(board2);
@@ -53,5 +55,10 @@ Aps! Obviously you need [d3js](http://d3js.org/) too!
 6. http://stackoverflow.com/questions/12303989/cartesian-product-of-multiple-arrays-in-javascript
 
 ## News
+- Version 0.1.2 released. Adding `picefontsize`, `textfontsize`, `textopacity` parameters,  (2015-06-26).
 - Version 0.1.1 released. parameters `width` and `heigth` replaced with `size`  (2015-06-24).
 - Version 0.1 released (2015-06-23). 
+
+## Future Work
+
+- Posibility to implement other chess fonts or svg images.

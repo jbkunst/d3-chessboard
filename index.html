@@ -13,19 +13,23 @@
   <script type="text/javascript" src="d3-chessboard.js"></script>
   <script type="text/javascript">
     
+    /* Example 1 */
     var sel = d3.select("#chess-container");
     var board = d3chessboard();
     sel.call(board);
 
-
+    /* Example 2 */
     var fenstring = "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2";
     var sel2 = d3.select("#chess-container2");
     var board2 = d3chessboard()
                     .fen(fenstring)
-                    .size(500)
-                    .fontsize(49)
+                    .size(450)
+                    .picefontsize(48)
+                    .textfontsize(20)
+                    .textopacity(0.5)
                     .whitecellcolor("#FAFAFA")
                     .blackcellcolor("#CCC");
+    
     sel2.call(board2);
 
   </script>
