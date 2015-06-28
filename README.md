@@ -29,9 +29,7 @@ var fenstring = "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2";
 var sel2 = d3.select("#chess-container2");
 var board2 = d3chessboard()
                 .fen(fenstring)
-                .size(450)
-                .picefontsize(48)
-                .textfontsize(20)
+                .size(600)
                 .textopacity(0.5)
                 .whitecellcolor("#FAFAFA")
                 .blackcellcolor("#CCC");
@@ -55,6 +53,7 @@ Aps! Obviously you need [d3js](http://d3js.org/) too!
 6. http://stackoverflow.com/questions/12303989/cartesian-product-of-multiple-arrays-in-javascript
 
 ## News
+- Version 0.1.3 released. Removing `picefontsize` and `textfontsize` parameters (2015-06-28).
 - Version 0.1.2 released. Adding `picefontsize`, `textfontsize`, `textopacity` parameters (2015-06-26).
 - Version 0.1.1 released. Parameters `width` and `heigth` replaced with `size` (2015-06-24).
 - Version 0.1 released (2015-06-23). 
