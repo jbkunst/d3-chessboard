@@ -29,6 +29,8 @@ function d3chessboard() {
     selection.each(function(d, i) {
 
       var chess = new Chess();
+
+      var textsize
       
       chess.load(fen);
 
@@ -42,50 +44,6 @@ function d3chessboard() {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       var gridSize = Math.floor(size / cols.length)
-
-      var colLabels = svg.selectAll(".colLabel")
-          .data(cols)
-          .enter().append("text")
-            .text(function (d) { return d; })
-            .attr("y", 0)
-            .attr("x", function (d, i) { return i * gridSize; })
-            .style("font-size", function(d) { return Math.min(2 * gridSize, (2 * gridSize - 8) / this.getComputedTextLength() * 1.25) + "px"; })
-            .style("text-anchor", "middle")
-            .style("opacity", textopacity)
-            .attr("transform", "translate(" + gridSize / 2 + ", " + (size + gridSize/3) + "  )")
-
-      var colLabels2 = svg.selectAll(".colLabel")
-          .data(cols)
-          .enter().append("text")
-            .text(function (d) { return d; })
-            .attr("y", 0)
-            .attr("x", function (d, i) { return i * gridSize; })
-            .style("font-size", function(d) { return Math.min(2 * gridSize, (2 * gridSize - 8) / this.getComputedTextLength() * 1.25) + "px"; })
-            .style("text-anchor", "middle")
-            .style("opacity", textopacity)
-            .attr("transform", "translate(" + gridSize / 2 + ", " + -6 + "  )")
-
-      var rowLabels = svg.selectAll(".rowLabel")
-          .data(rows)
-          .enter().append("text")
-            .text(function(d) { return d; })
-            .attr("y", function(d, i) { return i * gridSize; })
-            .attr("x", 0)
-            .style("font-size", function(d) { return Math.min(2 * gridSize, (2 * gridSize - 8) / this.getComputedTextLength() * 1.25) + "px"; })
-            .style("text-anchor", "middle")
-            .style("opacity", textopacity)
-            .attr("transform", "translate(-18," + gridSize / 1.5 + ")")
-
-      var rowLabels = svg.selectAll(".rowLabel")
-          .data(rows)
-          .enter().append("text")
-            .text(function(d) { return d; })
-            .attr("y", function(d, i) { return i * gridSize; })
-            .attr("x", 0)
-            .style("font-size", function(d) { return Math.min(2 * gridSize, (2 * gridSize - 8) / this.getComputedTextLength() * 1.25) + "px"; })
-            .style("text-anchor", "middle")
-            .style("opacity", textopacity)
-            .attr("transform", "translate(" + (size + 18) + "," + gridSize / 1.5 + ")")
 
       var nodes = svg.selectAll(".node")
               .data(griddata)
@@ -107,7 +65,55 @@ function d3chessboard() {
               })
               .style("text-anchor", "middle")
               .attr("transform", function(d) { return "translate(" + gridSize/2 + "," + (3/4)*gridSize  + ")"; })
-              .style("font-size", function(d) { return Math.min(2 * gridSize, (2 * gridSize - 8) / this.getComputedTextLength() * 6.5) + "px"; })
+              .style("font-size", function(d) {
+                textsize = Math.min(2 * gridSize, (2 * gridSize - 8) / this.getComputedTextLength() * 6.5);
+                return textsize + "px";
+              })
+
+      svg.selectAll(".colLabel")
+          .data(cols)
+          .enter().append("text")
+            .text(function (d) { return d; })
+            .attr("y", 0)
+            .attr("x", function (d, i) { return i * gridSize; })
+            .style("font-size", gridSize/3 + "px")
+            .style("text-anchor", "middle")
+            .style("opacity", textopacity)
+            .attr("transform", "translate(" + gridSize / 2 + ", " + (size + gridSize/3) + "  )")
+
+      svg.selectAll(".colLabel")
+          .data(cols)
+          .enter().append("text")
+            .text(function (d) { return d; })
+            .attr("y", 0)
+            .attr("x", function (d, i) { return i * gridSize; })
+            .style("font-size", gridSize/3 + "px")
+            .style("text-anchor", "middle")
+            .style("opacity", textopacity)
+            .attr("transform", "translate(" + gridSize / 2 + ", " + -6 + "  )")
+
+      svg.selectAll(".rowLabel")
+          .data(rows)
+          .enter().append("text")
+            .text(function(d) { return d; })
+            .attr("y", function(d, i) { return i * gridSize; })
+            .attr("x", 0)
+            .style("font-size", gridSize/3 + "px")
+            .style("text-anchor", "middle")
+            .style("opacity", textopacity)
+            .attr("transform", "translate(-18," + gridSize / 1.5 + ")")
+
+      svg.selectAll(".rowLabel")
+          .data(rows)
+          .enter().append("text")
+            .text(function(d) { return d; })
+            .attr("y", function(d, i) { return i * gridSize; })
+            .attr("x", 0)
+            .style("font-size", gridSize/3 + "px")
+            .style("text-anchor", "middle")
+            .style("opacity", textopacity)
+            .attr("transform", "translate(" + (size + 18) + "," + gridSize / 1.5 + ")")
+
     });
   };
 
