@@ -8,8 +8,7 @@ function d3chessboard() {
       size = 500;
       
   // internal parameters
-  var margin = {top: 30, right: 30, bottom: 30, left: 30},
-      cols = ["a", "b", "c", "d", "e", "f", "g", "h"],
+  var cols = ["a", "b", "c", "d", "e", "f", "g", "h"],
       rows = [8, 7, 6, 5, 4, 3, 2, 1],
       griddata = cartesianprod(rows, rows);
 
@@ -30,6 +29,8 @@ function d3chessboard() {
 
       var chess = new Chess();
       
+      var margin = size*0.06
+      
       chess.load(fen);
 
       // beware, you maybe shall not pass
@@ -39,9 +40,9 @@ function d3chessboard() {
         .attr("width", size)
         .attr("height", size)
         .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        .attr("transform", "translate(" + margin + "," + margin + ")");
 
-      var gridSize = Math.floor((size - margin.left - margin.right) / cols.length)
+      var gridSize = Math.floor((size - margin - margin) / cols.length)
 
       var nodes = svg.selectAll(".node")
               .data(griddata)
@@ -99,7 +100,7 @@ function d3chessboard() {
             .style("font-size", gridSize/3 + "px")
             .style("text-anchor", "middle")
             .style("opacity", textopacity)
-            .attr("transform", "translate(" + gridSize / 2 + ", " + ( (size - margin.top - margin.bottom) + gridSize/3) + "  )")
+            .attr("transform", "translate(" + gridSize / 2 + ", " + ( (size - margin - margin) + gridSize/3) + "  )")
 
       svg.selectAll(".rowLabel")
           .data(rows)
@@ -110,7 +111,7 @@ function d3chessboard() {
             .style("font-size", gridSize/3 + "px")
             .style("text-anchor", "middle")
             .style("opacity", textopacity)
-            .attr("transform", "translate(" + ((size - margin.left - margin.right) + 18) + "," + gridSize / 1.5 + ")")
+            .attr("transform", "translate(" + ((size - margin - margin) + 18) + "," + gridSize / 1.5 + ")")
 
     });
   };
