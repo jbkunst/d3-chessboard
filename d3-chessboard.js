@@ -5,7 +5,7 @@ function d3chessboard() {
       blackcellcolor = "tan",
       fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
       textopacity = 0.75,
-      size = 400;
+      size = 500;
       
   // internal parameters
   var margin = {top: 30, right: 30, bottom: 30, left: 30},
@@ -29,8 +29,6 @@ function d3chessboard() {
     selection.each(function(d, i) {
 
       var chess = new Chess();
-
-      var textsize
       
       chess.load(fen);
 
@@ -38,12 +36,12 @@ function d3chessboard() {
       selection.selectAll("*").remove();
 
       var svg = selection.append("svg")
-        .attr("width", size + margin.left + margin.right)
-        .attr("height", size + margin.top + margin.bottom)
+        .attr("width", size)
+        .attr("height", size)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-      var gridSize = Math.floor(size / cols.length)
+      var gridSize = Math.floor((size - margin.left - margin.right) / cols.length)
 
       var nodes = svg.selectAll(".node")
               .data(griddata)
@@ -79,17 +77,6 @@ function d3chessboard() {
             .style("font-size", gridSize/3 + "px")
             .style("text-anchor", "middle")
             .style("opacity", textopacity)
-            .attr("transform", "translate(" + gridSize / 2 + ", " + (size + gridSize/3) + "  )")
-
-      svg.selectAll(".colLabel")
-          .data(cols)
-          .enter().append("text")
-            .text(function (d) { return d; })
-            .attr("y", 0)
-            .attr("x", function (d, i) { return i * gridSize; })
-            .style("font-size", gridSize/3 + "px")
-            .style("text-anchor", "middle")
-            .style("opacity", textopacity)
             .attr("transform", "translate(" + gridSize / 2 + ", " + -6 + "  )")
 
       svg.selectAll(".rowLabel")
@@ -103,6 +90,17 @@ function d3chessboard() {
             .style("opacity", textopacity)
             .attr("transform", "translate(-18," + gridSize / 1.5 + ")")
 
+      svg.selectAll(".colLabel")
+          .data(cols)
+          .enter().append("text")
+            .text(function (d) { return d; })
+            .attr("y", 0)
+            .attr("x", function (d, i) { return i * gridSize; })
+            .style("font-size", gridSize/3 + "px")
+            .style("text-anchor", "middle")
+            .style("opacity", textopacity)
+            .attr("transform", "translate(" + gridSize / 2 + ", " + ( (size - margin.top - margin.bottom) + gridSize/3) + "  )")
+
       svg.selectAll(".rowLabel")
           .data(rows)
           .enter().append("text")
@@ -112,7 +110,7 @@ function d3chessboard() {
             .style("font-size", gridSize/3 + "px")
             .style("text-anchor", "middle")
             .style("opacity", textopacity)
-            .attr("transform", "translate(" + (size + 18) + "," + gridSize / 1.5 + ")")
+            .attr("transform", "translate(" + ((size - margin.left - margin.right) + 18) + "," + gridSize / 1.5 + ")")
 
     });
   };
