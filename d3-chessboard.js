@@ -5,7 +5,8 @@ function d3chessboard() {
       blackcellcolor = "tan",
       fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
       textopacity = 0.75,
-      size = 500;
+      perspective = "white";
+      size = 350;
       
   // internal parameters
   var cols = ["a", "b", "c", "d", "e", "f", "g", "h"],
@@ -69,6 +70,7 @@ function d3chessboard() {
                 return textsize + "px";
               })
 
+      /* top */
       svg.selectAll(".colLabel")
           .data(cols)
           .enter().append("text")
@@ -80,6 +82,7 @@ function d3chessboard() {
             .style("opacity", textopacity)
             .attr("transform", "translate(" + gridSize / 2 + ", " + -6 + "  )")
 
+      /* left */
       svg.selectAll(".rowLabel")
           .data(rows)
           .enter().append("text")
@@ -91,6 +94,7 @@ function d3chessboard() {
             .style("opacity", textopacity)
             .attr("transform", "translate(-18," + gridSize / 1.5 + ")")
 
+      /* bottom */
       svg.selectAll(".colLabel")
           .data(cols)
           .enter().append("text")
@@ -102,6 +106,7 @@ function d3chessboard() {
             .style("opacity", textopacity)
             .attr("transform", "translate(" + gridSize / 2 + ", " + ( (size - margin - margin) + gridSize/3) + "  )")
 
+      /* right */
       svg.selectAll(".rowLabel")
           .data(rows)
           .enter().append("text")
@@ -143,6 +148,12 @@ function d3chessboard() {
   board.fen = function(_) {
     if (!arguments.length) return fen;
     fen = _;
+    return board;
+  };
+
+  board.perspective = function(_) {
+    if (!arguments.length) return perspective;
+    perspective = _;
     return board;
   };
 
